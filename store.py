@@ -1,7 +1,5 @@
-import products
-
-
 class Store:
+    """Store class"""
     def __init__(self, product_list=None):
         """initialize the store"""
         if product_list is None:
@@ -40,22 +38,6 @@ class Store:
             try:
                 # Hier rufen wir die buy-Methode des Produkts auf
                 total_price += product.buy(quantity)
-            except Exception as e:
-                print(f"Error ordering {product.name}: {e}")
+            except Exception as fehler:
+                print(f"Error ordering {product.name}: {fehler}")
         return total_price
-
-
-"""# Test
-if __name__ == '__main__':
-    product_list = [products.Product("MacBook Air M2", price=1450, quantity=100),
-                    products.Product("Bose QuietComfort Earbuds", price=250, quantity=500),
-                    products.Product("Google Pixel 7", price=500, quantity=250),
-                    ]
-
-    best_buy = Store(product_list)
-    products_list = best_buy.get_all_products()
-    print(best_buy.get_total_quantity())
-
-    # Testbestellung
-    if len(products_list) >= 2:
-        print(best_buy.order([(products_list[0], 1), (products_list[1], 2)]))"""

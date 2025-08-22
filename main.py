@@ -41,7 +41,7 @@ def make_order():
             total_price = best_buy.order(shopping_list)
             product_choice = input("Which product # do you want?: ")
             if product_choice == "":
-                print(f"********")
+                print("********")
                 break
 
             product_index = int(product_choice) - 1
@@ -59,8 +59,8 @@ def make_order():
         try:
             total_price = best_buy.order(shopping_list)
             print(f"Order made! Total payment: ${total_price}\n")
-        except Exception as e:
-            print(f"Order failed: {e}")
+        except Exception as fehler:
+            print(f"Order failed: {fehler}")
 
 
 def start():

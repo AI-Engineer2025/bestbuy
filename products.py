@@ -1,4 +1,5 @@
 class Product:
+    """Product class"""
     def __init__(self, name: str, price: float, quantity: int):
         """Initialize a product."""
         if name is None or name == "":
@@ -11,7 +12,7 @@ class Product:
         self.name = name
         self.price = price
         self.quantity = quantity
-        self.active = True if quantity > 0 else False
+        self.active = quantity > 0
 
     def get_quantity(self) -> int:
         """Return the quantity of the product."""
@@ -60,19 +61,3 @@ class Product:
             self.deactivate()
 
         return total_price
-
-
-"""# Testcode
-if __name__ == "__main__":
-    bose = Product("Bose QuietComfort Earbuds", price=250, quantity=500)
-    mac = Product("MacBook Air M2", price=1450, quantity=100)
-
-    print(bose.buy(50))
-    print(mac.buy(100))
-    print(mac.is_active())
-
-    bose.show()
-    mac.show()
-
-    bose.set_quantity(1000)
-    bose.show()"""
