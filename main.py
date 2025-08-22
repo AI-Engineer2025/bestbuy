@@ -1,14 +1,13 @@
 import products
 import store
 
-
-
 # setup initial stock of inventory
-product_list = [ products.Product("MacBook Air M2", price=1450, quantity=100),
-                 products.Product("Bose QuietComfort Earbuds", price=250, quantity=500),
-                 products.Product("Google Pixel 7", price=500, quantity=250)
-               ]
+product_list = [products.Product("MacBook Air M2", price=1450, quantity=100),
+                products.Product("Bose QuietComfort Earbuds", price=250, quantity=500),
+                products.Product("Google Pixel 7", price=500, quantity=250)
+                ]
 best_buy = store.Store(product_list)
+
 
 def list_products():
     """List all product in store"""
@@ -17,10 +16,13 @@ def list_products():
     for i, product in enumerate(products, 1):
         print(f"{i}. {product.name}, Price: ${product.price}, Quantity: {product.quantity}")
     print("------\n")
+
+
 def show_total_quantity():
     """Show total quantity of products in store"""
     total = best_buy.get_total_quantity()
     print(f"Total of {total} items in store\n")
+
 
 def make_order():
     """Make order"""
@@ -42,7 +44,7 @@ def make_order():
                 print(f"********")
                 break
 
-            product_index = int(product_choice)-1
+            product_index = int(product_choice) - 1
             if 0 <= product_index < len(products):
                 product = products[product_index]
                 quantity = int(input("What amount do you want?: "))
@@ -82,6 +84,7 @@ def start():
             break
         else:
             print("Invalid choice! Please enter 1-4.")
+
 
 if __name__ == '__main__':
     start()
