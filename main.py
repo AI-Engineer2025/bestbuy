@@ -38,7 +38,6 @@ def make_order():
     while True:
         list_products()
         try:
-            total_price = best_buy.order(shopping_list)
             product_choice = input("Which product # do you want?: ")
             if product_choice == "":
                 print("********")
