@@ -38,6 +38,7 @@ class Store:
             try:
                 # Hier rufen wir die buy-Methode des Produkts auf
                 total_price += product.buy(quantity)
-            except Exception as fehler:
+            except ValueError as fehler:
                 print(f"Error ordering {product.name}: {fehler}")
+                raise fehler
         return total_price

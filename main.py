@@ -11,9 +11,9 @@ best_buy = store.Store(product_list)
 
 def list_products():
     """List all product in store"""
-    products = best_buy.get_all_products()
+    product_line = best_buy.get_all_products()
     print("------")
-    for i, product in enumerate(products, 1):
+    for i, product in enumerate(product_line, 1):
         print(f"{i}. {product.name}, Price: ${product.price}, Quantity: {product.quantity}")
     print("------\n")
 
@@ -26,8 +26,8 @@ def show_total_quantity():
 
 def make_order():
     """Make order"""
-    products = best_buy.get_all_products()
-    if not products:
+    available_products = best_buy.get_all_products()
+    if not available_products:
         print("No products available!")
         return
     print("Product added to list!")
@@ -45,8 +45,8 @@ def make_order():
                 break
 
             product_index = int(product_choice) - 1
-            if 0 <= product_index < len(products):
-                product = products[product_index]
+            if 0 <= product_index < len(available_products):
+                product = available_products[product_index]
                 quantity = int(input("What amount do you want?: "))
                 shopping_list.append((product, quantity))
                 print(f"Added {quantity} x {product.name} to cart")
@@ -59,7 +59,7 @@ def make_order():
         try:
             total_price = best_buy.order(shopping_list)
             print(f"Order made! Total payment: ${total_price}\n")
-        except Exception as fehler:
+        except ValueError as fehler:
             print(f"Order failed: {fehler}")
 
 
