@@ -54,7 +54,7 @@ class Product:
         return total_price
 
 
-# Testcode
+"""# Testcode
 if __name__ == "__main__":
     bose = Product("Bose QuietComfort Earbuds", price=250, quantity=500)
     mac = Product("MacBook Air M2", price=1450, quantity=100)
@@ -67,4 +67,4 @@ if __name__ == "__main__":
     mac.show()
 
     bose.set_quantity(1000)
-    bose.show()
+    bose.show()"""

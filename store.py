@@ -38,7 +38,7 @@ class Store:
         return total_price
 
 
-# Test
+"""# Test
 if __name__ == '__main__':
     product_list = [products.Product("MacBook Air M2", price=1450, quantity=100),
                     products.Product("Bose QuietComfort Earbuds", price=250, quantity=500),
@@ -51,4 +51,4 @@ if __name__ == '__main__':
 
     # Testbestellung
     if len(products_list) >= 2:
-        print(best_buy.order([(products_list[0], 1), (products_list[1], 2)]))
+        print(best_buy.order([(products_list[0], 1), (products_list[1], 2)]))"""
