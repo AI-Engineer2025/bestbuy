@@ -31,7 +31,8 @@ class Store:
                 active_products.append(product)
         return active_products
 
-    def order(self, shopping_list):
+    @staticmethod
+    def order(shopping_list):
         """order the store"""
         total_price = 0
         for product, quantity in shopping_list:
