@@ -52,7 +52,7 @@ class Product:
         if not self.is_active():
             raise Exception("Product is not active")
         if quantity > self.quantity:
-            raise Exception("Not enough quantity in stock")
+            raise ValueError("Not enough quantity in stock")
 
         total_price = quantity * self.price
         self.quantity -= quantity

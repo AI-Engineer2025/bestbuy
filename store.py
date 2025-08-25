@@ -17,11 +17,8 @@ class Store:
             self.products.remove(product)
 
     def get_total_quantity(self):
-        """return the total quantity of the store"""
-        total = 0
-        for product in self.products:
-            total += product.get_quantity()
-        return total
+        """Return the total quantity of the store"""
+        return sum(product.get_quantity() for product in self.products)
 
     def get_all_products(self):
         """return all the products in the store"""
@@ -40,6 +37,5 @@ class Store:
                 # Hier rufen wir die buy-Methode des Produkts auf
                 total_price += product.buy(quantity)
             except ValueError as fehler:
-                print(f"Error ordering {product.name}: {fehler}")
-                raise fehler
+                raise ValueError(f"Oder failed for {product.name}: {fehler}")
         return total_price

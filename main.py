@@ -14,7 +14,8 @@ def list_products():
     product_line = best_buy.get_all_products()
     print("------")
     for i, product in enumerate(product_line, 1):
-        print(f"{i}. {product.name}, Price: ${product.price}, Quantity: {product.quantity}")
+        print(f"{i}. ", end="")
+        product.show()
     print("------\n")
 
 
@@ -30,7 +31,6 @@ def make_order():
     if not available_products:
         print("No products available!")
         return
-    print("Product added to list!")
 
     shopping_list = []
     print("When you to finish order, enter empty text.")
@@ -47,8 +47,13 @@ def make_order():
             if 0 <= product_index < len(available_products):
                 product = available_products[product_index]
                 quantity = int(input("What amount do you want?: "))
-                shopping_list.append((product, quantity))
-                print(f"Added {quantity} x {product.name} to cart")
+
+                # Validierung der Menge gegen verfügbaren Bestand
+                if quantity <= product.quantity:
+                    shopping_list.append((product, quantity))
+                    print(f"Added {quantity} x {product.name} to cart")
+                else:
+                    print(f"Sorry, only {product.quantity} items available!")
             else:
                 print("Invalid product number!")
         except ValueError:
