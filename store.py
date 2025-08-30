@@ -30,7 +30,7 @@ class Store:
 
     @staticmethod
     def order(shopping_list):
-        """order the store"""
+        """Process order from shopping list"""
         total_price = 0
         for product, quantity in shopping_list:
             try:

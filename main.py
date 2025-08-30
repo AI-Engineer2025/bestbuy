@@ -50,8 +50,7 @@ def make_order():
 
                 # Validierung der Menge gegen verfügbaren Bestand
                 if quantity <= product.quantity:
-                    total_price_for_quantity = product.buy(quantity)
-                    shopping_list.append((product, quantity, total_price_for_quantity))
+                    shopping_list.append((product, quantity))
                     print(f"Added {quantity} x {product.name} to cart")
                 else:
                     print(f"Sorry, only {product.quantity} items available!")
@@ -62,8 +61,7 @@ def make_order():
 
     if shopping_list:
         try:
-            #total_price = best_buy.order(shopping_list)
-            total_price = sum(item[2] for item in shopping_list)
+            total_price = best_buy.order(shopping_list) #sum(item[2] for item in shopping_list)
             print(f"Order made! Total payment: ${total_price}\n")
         except ValueError as fehler:
             print(f"Order failed: {fehler}")
